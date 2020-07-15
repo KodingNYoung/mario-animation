@@ -1,0 +1,125 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    /* background-color: red; */
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+}
+
+/* animations */
+.world {
+    /* height: 100%; */
+    /* width: 100%; */
+}
+
+
+.sky, .grass, .road {
+    position: relative;
+}
+.sky {
+    height: 40vh;
+    background-color: #87ceeb;
+}
+.grass {
+    background-color: seagreen;
+    height: 30vh;
+}
+.road {
+    height: 30vh;
+    background-color: #5f5f5f;
+    border-bottom: 10px solid grey;
+    border-top: 10px solid grey;
+}
+.lines {
+    border:4px dashed white;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width:980px) {
+    .sky{
+        height: 38vh;
+    }
+    .grass {
+        height: 26vh;
+    }
+    .road {
+        height: 28vh;
+    }
+}
+/* elements */
+.mario {
+    position: absolute;
+    width: 80px;
+    top: 0px;
+    left: 0;
+    animation-name: drive;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    /* animation-delay: 5s; */
+    animation-iteration-count: infinite;
+}
+
+.luigi {
+    position: absolute;
+    width: 80px;
+    bottom: 30px;
+    left: 0;
+    /* transform: rotateY(180deg); */
+    animation-name: drive2;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+}
+
+.cloud {
+    position: absolute;
+}
+.cloud:nth-child(1){
+    right: 0;
+    width: 150px;
+    top: 100px;
+    opacity: 0.6;
+    animation: wind 95s infinite linear;
+}
+.cloud:nth-child(2) {
+    right: 0;
+    animation: wind 80s infinite linear;
+}
+/* animation */
+@keyframes drive {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(102vw);
+    }
+}
+
+@keyframes drive2 {
+    from {
+        transform: translateX(-100%) rotateY(180deg);
+    }
+    to {
+        transform: translateX(102vw) rotateY(180deg);
+    }
+}
+
+@keyframes wind {
+    from {
+        right: -300px;
+    }
+    to{
+        right: 100%;
+    }
+}
